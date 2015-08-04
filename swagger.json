@@ -1,0 +1,67 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Mailgun API",
+        "description": "Stuff man.",
+        "version": "3.0.0"
+    },
+    "host": "api.mailgun.net",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/v3",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/domains": {
+            "get": {
+                "summary": "Get domains",
+                "description": "Get a list of domains under your account",
+                "operationId": "getDomains",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Max number of records to return (100 by default)",
+                        "required": false,
+                        "type": "number",
+                        "format": "int"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "Number of records to skip (0 by default).",
+                        "required": false,
+                        "type": "number",
+                        "format": "int"
+                    }
+                ],
+                "tags": [
+                    "Domains"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of domains",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Domain"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Domain": {
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "URL of domain."
+                }
+            }
+        }
+    }
+}
