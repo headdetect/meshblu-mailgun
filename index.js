@@ -1,16 +1,21 @@
 'use strict';
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
-var debug = require('debug')('meshblu-mailgun')
+var debug = require('debug')('meshblu-mailgun');
+var swag = require('./swagger.json');
 
 var MESSAGE_SCHEMA = {
   type: 'object',
   properties: {
-    exampleBoolean: {
-      type: 'boolean',
+    to: {
+      type: 'string',
       required: true
     },
-    exampleString: {
+    subject: {
+      type: 'string',
+      required: false
+    },
+    message: {
       type: 'string',
       required: true
     }
@@ -37,6 +42,9 @@ util.inherits(Plugin, EventEmitter);
 
 Plugin.prototype.onMessage = function(message){
   var payload = message.payload;
+
+  // do stuff here
+
   this.emit('message', {devices: ['*'], topic: 'echo', payload: payload});
 };
 
