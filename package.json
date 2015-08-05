@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "debug": "^2.1.0",
+    "lodash": "^3.10.1",
     "meshblu": "^1.22.0",
-    "swagger": "^0.6.3"
+    "swagger": "^0.6.3",
+    "swagger-client": "^2.1.2"
   },
   "bundledDependencies": [
     "request",

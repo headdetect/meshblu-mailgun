@@ -52,8 +52,49 @@
                     }
                 }
             }
+        },
+        "/{domain}/messages" :{
+          "post" :{
+            "summary" : "Send message",
+            "description" : "Send an email message",
+            "operationId" : "sendMessage",
+            "tags" : ["Messages"],
+            "parameters" :[
+              {
+                "name" : "domain",
+                "in" :"path",
+                "required"  : true,
+                "type" : "string"
+              },
+              {
+                "name" :"to",
+                "in" :"body",
+                "required"  : true,
+                "type" : "string"
+              },
+              {
+                "name" :"from",
+                "in" :"body",
+                "required"  : true,
+                "type" : "string"
+              },
+              {
+                "name" :"subject",
+                "in" :"body",
+                "required"  : true,
+                "type" : "string"
+              },
+              {
+                "name" :"message",
+                "in" :"body",
+                "required"  : true,
+                "type" : "string"
+              }
+            ]
+          }
         }
     },
+
     "definitions": {
         "Domain": {
             "properties": {
